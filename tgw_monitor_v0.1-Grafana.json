@@ -1,0 +1,2901 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 256,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 19,
+      "panels": [],
+      "title": "tgw总览",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "7-OvIHzGz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "noValue": "NaN",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "运行状态"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 116
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "dark-red",
+                        "index": 1,
+                        "text": "监控登录失败"
+                      },
+                      "1": {
+                        "color": "dark-green",
+                        "index": 0,
+                        "text": "监控连接成功"
+                      },
+                      "-1": {
+                        "color": "dark-red",
+                        "index": 2,
+                        "text": "监控连接失败"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "业务节点"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 106
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "运行IP"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 126
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "网关号"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 142
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "title": "",
+                    "url": "http://localhost?orgId=1&var-tgw_id=${__data.fields.网关号}&${__url_time_range}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "操作系统类型"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 122
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "监控点"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 114
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "pattern": "/(.*?):9999/",
+                      "result": {
+                        "index": 1,
+                        "text": "$1"
+                      }
+                    },
+                    "type": "regex"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 9,
+        "x": 0,
+        "y": 1
+      },
+      "id": 18,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": true,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 3,
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.1.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_up{}",
+          "format": "table",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "tgw监控总览",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "Time 1": true,
+              "Time 2": true,
+              "Time 3": true,
+              "Time 4": true,
+              "Time 5": true,
+              "Time 6": true,
+              "Time 7": true,
+              "Time 8": true,
+              "__name__": true,
+              "__name__ 1": true,
+              "__name__ 2": true,
+              "__name__ 3": true,
+              "__name__ 4": true,
+              "host": true,
+              "host 1": true,
+              "host 2": true,
+              "host 3": true,
+              "host 4": true,
+              "host 5": true,
+              "host 6": true,
+              "instance": false,
+              "instance 1": true,
+              "instance 2": true,
+              "instance 3": true,
+              "instance 4": true,
+              "instance 5": true,
+              "instance 6": true,
+              "job": true,
+              "job 1": true,
+              "job 2": true,
+              "job 3": true,
+              "job 4": true,
+              "job 5": true,
+              "job 6": true,
+              "node 2": true,
+              "node 3": true,
+              "node 4": true,
+              "node 5": true,
+              "node 6": true,
+              "osType": true,
+              "osType 1": true,
+              "osType 2": true,
+              "osType 3": true,
+              "osType 4": true,
+              "osType 5": true,
+              "osType 6": true,
+              "serverAddress 2": true,
+              "serverAddress 3": true,
+              "tgw_host": false,
+              "tgw_monitor_port": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "Time 1": 1,
+              "Time 2": 11,
+              "Time 3": 18,
+              "Time 4": 26,
+              "Time 5": 34,
+              "Time 6": 36,
+              "Time 7": 39,
+              "Time 8": 48,
+              "Time 9": 57,
+              "Value #A": 10,
+              "Value #B": 33,
+              "Value #C": 35,
+              "Value #D": 37,
+              "Value #E": 17,
+              "Value #F": 25,
+              "Value #G": 47,
+              "Value #H": 56,
+              "Value #I": 38,
+              "__name__ 1": 2,
+              "__name__ 2": 27,
+              "__name__ 3": 40,
+              "__name__ 4": 49,
+              "host 1": 3,
+              "host 2": 12,
+              "host 3": 19,
+              "host 4": 28,
+              "host 5": 41,
+              "host 6": 50,
+              "instance 1": 4,
+              "instance 2": 13,
+              "instance 3": 20,
+              "instance 4": 29,
+              "instance 5": 42,
+              "instance 6": 51,
+              "job 1": 5,
+              "job 2": 14,
+              "job 3": 21,
+              "job 4": 30,
+              "job 5": 43,
+              "job 6": 52,
+              "node 1": 6,
+              "node 2": 15,
+              "node 3": 22,
+              "node 4": 31,
+              "node 5": 44,
+              "node 6": 53,
+              "osType 1": 7,
+              "osType 2": 16,
+              "osType 3": 23,
+              "osType 4": 32,
+              "osType 5": 45,
+              "osType 6": 54,
+              "serverAddress 1": 24,
+              "serverAddress 2": 46,
+              "serverAddress 3": 55,
+              "tgw_host": 8,
+              "tgw_id": 0,
+              "tgw_monitor_port": 9
+            },
+            "renameByName": {
+              "Time 1": "",
+              "Value": "运行状态",
+              "Value #A": "运行状态",
+              "Value #B": "网关版本",
+              "Value #C": "平台数",
+              "Value #D": "oms连接数",
+              "Value #E": "证书剩余时间",
+              "Value #F": "网关通信状态",
+              "Value #G": "环境号",
+              "Value #H": "限速",
+              "Value #I": "连接数判断",
+              "host 1": "",
+              "instance": "监控点",
+              "job 1": "",
+              "node": "业务节点",
+              "node 1": "业务节点",
+              "osType": "操作系统类型",
+              "osType 1": "操作系统类型",
+              "serverAddress": "交易主机地址",
+              "serverAddress 1": "交易主机分组",
+              "tgw_host": "运行IP",
+              "tgw_id": "网关号"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "7-OvIHzGz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "noValue": "未知",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "运行状态"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 102
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "dark-red",
+                        "index": 1,
+                        "text": "监控登录失败"
+                      },
+                      "1": {
+                        "color": "dark-green",
+                        "index": 0,
+                        "text": "监控连接成功"
+                      },
+                      "-1": {
+                        "color": "dark-red",
+                        "index": 2,
+                        "text": "监控连接失败"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "业务节点"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 89
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "运行IP"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 109
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "网关号"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 137
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "title": "",
+                    "url": "http://localhost?orgId=1&var-tgw_id=${__data.fields.网关号}&${__url_time_range}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "操作系统类型"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 121
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "证书剩余时间"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": ""
+              },
+              {
+                "id": "custom.width",
+                "value": 86
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "from": 2592000,
+                      "result": {
+                        "color": "dark-green",
+                        "index": 0,
+                        "text": "大于30天"
+                      },
+                      "to": 999999999
+                    },
+                    "type": "range"
+                  },
+                  {
+                    "options": {
+                      "from": 604800,
+                      "result": {
+                        "color": "dark-orange",
+                        "index": 1,
+                        "text": "大于7天"
+                      },
+                      "to": 2591999
+                    },
+                    "type": "range"
+                  },
+                  {
+                    "options": {
+                      "from": 0,
+                      "result": {
+                        "color": "dark-yellow",
+                        "index": 2,
+                        "text": "不足7天"
+                      },
+                      "to": 604799
+                    },
+                    "type": "range"
+                  },
+                  {
+                    "options": {
+                      "from": -9999999999,
+                      "result": {
+                        "color": "dark-red",
+                        "index": 3,
+                        "text": "已过期"
+                      },
+                      "to": -1
+                    },
+                    "type": "range"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "交易主机分组"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 115
+              },           
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "网关通信状态"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "dark-red",
+                        "index": 1,
+                        "text": "通信异常"
+                      },
+                      "1": {
+                        "color": "dark-green",
+                        "index": 0,
+                        "text": "通信正常"
+                      }
+                    },
+                    "type": "value"
+                  },
+                  {
+                    "options": {
+                      "match": "null+nan",
+                      "result": {
+                        "color": "text",
+                        "index": 2,
+                        "text": "未知"
+                      }
+                    },
+                    "type": "special"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 88
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "网关版本"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "dark-blue",
+                        "index": 0,
+                        "text": "有更新"
+                      },
+                      "1": {
+                        "color": "dark-green",
+                        "index": 1,
+                        "text": "已最新"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.width",
+                "value": 86
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "平台数"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 81
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "oms连接数"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 103
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "环境号"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 80
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "限速"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "笔/s"
+              },
+              {
+                "id": "custom.width",
+                "value": 80
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "serverAddress"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 142
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "连接数判断"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 116
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "dark-red",
+                        "index": 0,
+                        "text": "不符合预期"
+                      }
+                    },
+                    "type": "value"
+                  },
+                  {
+                    "options": {
+                      "from": 1,
+                      "result": {
+                        "color": "dark-green",
+                        "index": 1,
+                        "text": "符合预期"
+                      },
+                      "to": 2
+                    },
+                    "type": "range"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 15,
+        "x": 9,
+        "y": 1
+      },
+      "id": 2,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": true,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 3,
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "证书剩余时间"
+          }
+        ]
+      },
+      "pluginVersion": "11.1.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_up{}",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_certificationExpireTime - time()",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_RunStatus_commStatus{} - 0",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "F"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_latestGatewayVersion{} == bool tgw_progVersion{}",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "6 - count by(tgw_id) (tgw_RunStatus_platformState{} == -99)",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "6 - count by(tgw_id) (tgw_SessionStatus_sessionStatus{} == -99) ",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_RunStatus_envId{}",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "G"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_RunStatus_orderRate{}",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "H"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "(\r\n  count(tgw_RunStatus_platformState{} != 99 and tgw_RunStatus_platformState{} != -99) by (tgw_id) \r\n  == bool \r\n  (6 - count(tgw_SessionStatus_sessionStatus{} == -99) by (tgw_id))\r\n)\r\n+\r\n(\r\n (6 - count(tgw_SessionStatus_sessionStatus{} == -99) by (tgw_id))\r\n  == bool \r\n  count(tgw_required_platforms{} == 1) by (tgw_id)\r\n)",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "I"
+        }
+      ],
+      "title": "tgw信息总览（需连上监控端口）",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "tgw_id",
+            "mode": "inner"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "Time 1": true,
+              "Time 2": true,
+              "Time 3": true,
+              "Time 4": true,
+              "Time 5": true,
+              "Time 6": true,
+              "Time 7": true,
+              "Time 8": true,
+              "Value #A": true,
+              "Value #C": false,
+              "Value #G": true,
+              "Value #I": false,
+              "__name__": true,
+              "__name__ 1": true,
+              "__name__ 2": true,
+              "__name__ 3": true,
+              "__name__ 4": true,
+              "host": true,
+              "host 1": true,
+              "host 2": true,
+              "host 3": true,
+              "host 4": true,
+              "host 5": true,
+              "host 6": true,
+              "instance": true,
+              "instance 1": true,
+              "instance 2": true,
+              "instance 3": true,
+              "instance 4": true,
+              "instance 5": true,
+              "instance 6": true,
+              "job": true,
+              "job 1": true,
+              "job 2": true,
+              "job 3": true,
+              "job 4": true,
+              "job 5": true,
+              "job 6": true,
+              "node 1": false,
+              "node 2": true,
+              "node 3": true,
+              "node 4": true,
+              "node 5": true,
+              "node 6": true,
+              "osType 1": true,
+              "osType 2": true,
+              "osType 3": true,
+              "osType 4": true,
+              "osType 5": true,
+              "osType 6": true,
+              "serverAddress 2": true,
+              "serverAddress 3": true,
+              "tgw_host": false,
+              "tgw_monitor_port": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "Time 1": 1,
+              "Time 2": 11,
+              "Time 3": 18,
+              "Time 4": 26,
+              "Time 5": 34,
+              "Time 6": 36,
+              "Time 7": 39,
+              "Time 8": 48,
+              "Time 9": 57,
+              "Value #A": 10,
+              "Value #B": 33,
+              "Value #C": 35,
+              "Value #D": 37,
+              "Value #E": 17,
+              "Value #F": 25,
+              "Value #G": 47,
+              "Value #H": 56,
+              "Value #I": 38,
+              "__name__ 1": 2,
+              "__name__ 2": 27,
+              "__name__ 3": 40,
+              "__name__ 4": 49,
+              "host 1": 3,
+              "host 2": 12,
+              "host 3": 19,
+              "host 4": 28,
+              "host 5": 41,
+              "host 6": 50,
+              "instance 1": 4,
+              "instance 2": 13,
+              "instance 3": 20,
+              "instance 4": 29,
+              "instance 5": 42,
+              "instance 6": 51,
+              "job 1": 5,
+              "job 2": 14,
+              "job 3": 21,
+              "job 4": 30,
+              "job 5": 43,
+              "job 6": 52,
+              "node 1": 6,
+              "node 2": 15,
+              "node 3": 22,
+              "node 4": 31,
+              "node 5": 44,
+              "node 6": 53,
+              "osType 1": 7,
+              "osType 2": 16,
+              "osType 3": 23,
+              "osType 4": 32,
+              "osType 5": 45,
+              "osType 6": 54,
+              "serverAddress 1": 24,
+              "serverAddress 2": 46,
+              "serverAddress 3": 55,
+              "tgw_host": 8,
+              "tgw_id": 0,
+              "tgw_monitor_port": 9
+            },
+            "renameByName": {
+              "Time 1": "",
+              "Value #A": "运行状态",
+              "Value #B": "网关版本",
+              "Value #C": "平台数",
+              "Value #D": "oms连接数",
+              "Value #E": "证书剩余时间",
+              "Value #F": "网关通信状态",
+              "Value #G": "环境号",
+              "Value #H": "限速",
+              "Value #I": "连接数判断",
+              "host 1": "",
+              "job 1": "",
+              "node": "业务节点",
+              "node 1": "业务节点",
+              "osType 1": "操作系统类型",
+              "serverAddress": "交易主机地址",
+              "serverAddress 1": "交易主机分组",
+              "tgw_host": "运行IP",
+              "tgw_id": "网关号"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 10
+      },
+      "id": 4,
+      "panels": [],
+      "repeat": "tgw_id",
+      "repeatDirection": "h",
+      "title": "$tgw_id 详细信息",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "7-OvIHzGz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "dark-yellow",
+                  "index": 1,
+                  "text": "监控密码错误"
+                },
+                "1": {
+                  "color": "dark-green",
+                  "index": 0,
+                  "text": "监控连接正常"
+                },
+                "-1": {
+                  "color": "dark-red",
+                  "index": 2,
+                  "text": "监控未连接"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "noValue": "未知",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 0,
+        "y": 11
+      },
+      "id": 3,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_up{tgw_id=\"${tgw_id}\"}",
+          "format": "time_series",
+          "instant": true,
+          "legendFormat": "{{tgw_host}}:{{tgw_monitor_port}}",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "7-OvIHzGz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "1": {
+                  "color": "text",
+                  "index": 0,
+                  "text": "普通交易网关"
+                },
+                "2": {
+                  "color": "dark-blue",
+                  "index": 1,
+                  "text": "数据汇总网关"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "noValue": "未知",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 2,
+        "y": 11
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "valueSize": 16
+        },
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_gatewayType{tgw_id=\"${tgw_id}\"}",
+          "format": "time_series",
+          "instant": true,
+          "legendFormat": "操作系统{{osType}}",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "网关类型",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "7-OvIHzGz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "未知",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 4,
+        "y": 11
+      },
+      "id": 7,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "valueSize": 16
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_progVersion{tgw_id=\"${tgw_id}\"}",
+          "format": "time_series",
+          "instant": true,
+          "legendFormat": "运行版本",
+          "range": false,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_latestGatewayVersion{tgw_id=\"${tgw_id}\"}",
+          "format": "time_series",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "最新版本",
+          "range": false,
+          "refId": "B"
+        }
+      ],
+      "title": "版本",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "7-OvIHzGz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "未知",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 6,
+        "y": 11
+      },
+      "id": 12,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "percentChangeColorMode": "same_as_value",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": true,
+        "text": {
+          "valueSize": 16
+        },
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_RunStatus_orderCount{tgw_id=\"${tgw_id}\"}",
+          "format": "time_series",
+          "instant": true,
+          "legendFormat": "已发委托数",
+          "range": false,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_RunStatus_orderConfirmCount{tgw_id=\"${tgw_id}\"}",
+          "format": "time_series",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "收到委托确认数",
+          "range": false,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_RunStatus_reportCount{tgw_id=\"${tgw_id}\"}",
+          "format": "time_series",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "收到成交回报数",
+          "range": false,
+          "refId": "C"
+        }
+      ],
+      "title": "数量",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "7-OvIHzGz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "noValue": "未知",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "platform_id"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "1": {
+                        "index": 0,
+                        "text": "集中竞价交易平台(1)"
+                      },
+                      "2": {
+                        "index": 1,
+                        "text": "综合金融服务平台(2)"
+                      },
+                      "3": {
+                        "index": 2,
+                        "text": "非交易处理平台(3)"
+                      },
+                      "4": {
+                        "index": 3,
+                        "text": "衍生品平台(4)"
+                      },
+                      "5": {
+                        "index": 4,
+                        "text": "国际市场互联平台(5)"
+                      },
+                      "6": {
+                        "index": 5,
+                        "text": "固定收益平台(6)"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Value #A"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 80
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "dark-orange",
+                        "index": 0,
+                        "text": "未开放"
+                      },
+                      "1": {
+                        "color": "green",
+                        "index": 1,
+                        "text": "即将开放"
+                      },
+                      "2": {
+                        "color": "dark-green",
+                        "index": 2,
+                        "text": "开放"
+                      },
+                      "3": {
+                        "color": "orange",
+                        "index": 3,
+                        "text": "暂停开放"
+                      },
+                      "4": {
+                        "color": "dark-red",
+                        "index": 4,
+                        "text": "关闭"
+                      },
+                      "99": {
+                        "color": "dark-yellow",
+                        "index": 5,
+                        "text": "未知"
+                      },
+                      "-99": {
+                        "color": "text",
+                        "index": 6,
+                        "text": "未配置"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "compId"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 109
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "通信状态"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 80
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "abnormal": {
+                        "color": "dark-red",
+                        "index": 1,
+                        "text": "通信异常"
+                      },
+                      "normal": {
+                        "color": "dark-green",
+                        "index": 0,
+                        "text": "通信正常"
+                      },
+                      "unconfigured": {
+                        "color": "text",
+                        "index": 2,
+                        "text": "未配置"
+                      },
+                      "unestablished": {
+                        "color": "dark-yellow",
+                        "index": 3,
+                        "text": "未连接"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Value #C"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 100
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Value #D"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 100
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Value #E"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 100
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Value #F"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 100
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Value #G"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 100
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "peerAddress"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 170
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 16,
+        "x": 8,
+        "y": 11
+      },
+      "id": 6,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": true,
+          "fields": [
+            "Value #C",
+            "Value #D",
+            "Value #E",
+            "Value #F",
+            "Value #G"
+          ],
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 3,
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.1.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_RunStatus_platformState{tgw_id=\"${tgw_id}\"}",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "label_replace(\r\n  tgw_SessionStatus_sessionStatus{tgw_id=\"${tgw_id}\"} == 1 and on(platform_id) tgw_RunStatus_platformState{tgw_id=\"${tgw_id}\"} != -99,\r\n  \"status\", \"normal\", \"\", \"\"\r\n)\r\nor\r\nlabel_replace(\r\n  tgw_SessionStatus_sessionStatus{tgw_id=\"${tgw_id}\"} == 2 and on(platform_id) tgw_RunStatus_platformState{tgw_id=\"${tgw_id}\"} != -99,\r\n  \"status\", \"abnormal\", \"\", \"\"\r\n)\r\nor\r\nlabel_replace(\r\n  tgw_SessionStatus_sessionStatus{tgw_id=\"${tgw_id}\"} == -99 and on(platform_id) tgw_RunStatus_platformState{tgw_id=\"${tgw_id}\"} != -99,\r\n  \"status\", \"unestablished\", \"\", \"\"\r\n) \r\nor \r\nlabel_replace(\r\n  tgw_SessionStatus_sessionStatus{tgw_id=\"${tgw_id}\"} == -99 and on(platform_id) tgw_RunStatus_platformState{tgw_id=\"${tgw_id}\"} == -99,\r\n  \"status\", \"unconfigured\", \"\", \"\"\r\n)",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_SessionStatus_orderCount{tgw_id=\"${tgw_id}\"}",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_SessionStatus_orderConfirmCount{tgw_id=\"${tgw_id}\"}",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_SessionStatus_reportCount{tgw_id=\"${tgw_id}\"}",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_SessionStatus_invalidOrderCount{tgw_id=\"${tgw_id}\"}",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "F"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_SessionStatus_businessRejectCount{tgw_id=\"${tgw_id}\"}",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "G"
+        }
+      ],
+      "title": "各平台状态",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "platform_id",
+            "mode": "inner"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time 1": true,
+              "Time 2": true,
+              "Time 3": true,
+              "Time 4": true,
+              "Time 5": true,
+              "Time 6": true,
+              "Time 7": true,
+              "Value #B": true,
+              "__name__ 1": true,
+              "__name__ 2": true,
+              "__name__ 3": true,
+              "__name__ 4": true,
+              "__name__ 5": true,
+              "__name__ 6": true,
+              "__name__ 7": true,
+              "compId 2": true,
+              "compId 3": true,
+              "compId 4": true,
+              "compId 5": true,
+              "compId 6": true,
+              "host 1": true,
+              "host 2": true,
+              "host 3": true,
+              "host 4": true,
+              "host 5": true,
+              "host 6": true,
+              "host 7": true,
+              "instance 1": true,
+              "instance 2": true,
+              "instance 3": true,
+              "instance 4": true,
+              "instance 5": true,
+              "instance 6": true,
+              "instance 7": true,
+              "job 1": true,
+              "job 2": true,
+              "job 3": true,
+              "job 4": true,
+              "job 5": true,
+              "job 6": true,
+              "job 7": true,
+              "node 1": true,
+              "node 2": true,
+              "node 3": true,
+              "node 4": true,
+              "node 5": true,
+              "node 6": true,
+              "node 7": true,
+              "osType 1": true,
+              "osType 2": true,
+              "osType 3": true,
+              "osType 4": true,
+              "osType 5": true,
+              "osType 6": true,
+              "osType 7": true,
+              "peerAddress 2": true,
+              "peerAddress 3": true,
+              "peerAddress 4": true,
+              "peerAddress 5": true,
+              "peerAddress 6": true,
+              "serverAddress": true,
+              "status": false,
+              "tgw_id 1": true,
+              "tgw_id 2": true,
+              "tgw_id 3": true,
+              "tgw_id 4": true,
+              "tgw_id 5": true,
+              "tgw_id 6": true,
+              "tgw_id 7": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Time 1": "",
+              "Value #A": "平台状态",
+              "Value #B": "通信状态",
+              "Value #C": "已发委托数",
+              "Value #D": "收到委托确认数",
+              "Value #E": "收到成交回报数",
+              "Value #F": "非法委托数",
+              "Value #G": "业务拒绝消息数",
+              "__name__ 1": "",
+              "compId 1": "OMS",
+              "host 1": "",
+              "peerAddress 1": "OMS地址",
+              "platform_id": "平台名称",
+              "status": "通信状态",
+              "tgw_id 2": "",
+              "tgw_id 5": ""
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "7-OvIHzGz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "dark-red",
+                  "index": 0,
+                  "text": "通信异常"
+                },
+                "1": {
+                  "color": "dark-green",
+                  "index": 1,
+                  "text": "通信正常"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "noValue": "未知",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 0,
+        "y": 13
+      },
+      "id": 11,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "valueSize": 16
+        },
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_RunStatus_commStatus{tgw_id=\"${tgw_id}\"}",
+          "format": "time_series",
+          "instant": true,
+          "legendFormat": "{{serverAddress}}",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "交易所通信",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "7-OvIHzGz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "未知",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              },
+              {
+                "color": "dark-red",
+                "value": -9999999
+              },
+              {
+                "color": "dark-orange",
+                "value": 0
+              },
+              {
+                "color": "dark-yellow",
+                "value": 604800
+              },
+              {
+                "color": "dark-green",
+                "value": 2592000
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "证书有效期"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "dateTimeAsLocal"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 2,
+        "y": 14
+      },
+      "id": 9,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "valueSize": 16
+        },
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_certificationExpireTime{tgw_id=\"${tgw_id}\"} - time()",
+          "format": "time_series",
+          "instant": true,
+          "legendFormat": "证书剩余时间",
+          "range": false,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_certificationExpireTime{tgw_id=\"${tgw_id}\"} * 1000",
+          "format": "time_series",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "证书有效期",
+          "range": false,
+          "refId": "B"
+        }
+      ],
+      "title": "证书剩余时间",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "7-OvIHzGz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "未知",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              },
+              {
+                "color": "dark-yellow",
+                "value": 1
+              },
+              {
+                "color": "dark-orange",
+                "value": 100
+              },
+              {
+                "color": "dark-red",
+                "value": 200
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 0,
+        "y": 16
+      },
+      "id": 17,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "percentChangeColorMode": "same_as_value",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": true,
+        "text": {
+          "valueSize": 16
+        },
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_RunStatus_invalidOrderCount{tgw_id=\"${tgw_id}\"}",
+          "format": "time_series",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "非法委托数",
+          "range": false,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_RunStatus_businessRejectCount{tgw_id=\"${tgw_id}\"}",
+          "format": "time_series",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "业务拒绝消息数",
+          "range": false,
+          "refId": "E"
+        }
+      ],
+      "title": "异常单",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "7-OvIHzGz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "未知",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "速率限制"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "笔/s"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 4,
+        "y": 16
+      },
+      "id": 10,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "valueSize": 16
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_RunStatus_orderRate{tgw_id=\"${tgw_id}\"}",
+          "format": "time_series",
+          "instant": true,
+          "legendFormat": "速率限制",
+          "range": false,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_RunStatus_orderRate{tgw_id=\"${tgw_id}\"}/50",
+          "format": "time_series",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "流速权",
+          "range": false,
+          "refId": "B"
+        }
+      ],
+      "title": "速率",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "7-OvIHzGz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "未知",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              },
+              {
+                "color": "dark-green",
+                "value": 0
+              },
+              {
+                "color": "#EAB839",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 2,
+        "y": 17
+      },
+      "id": 14,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "vertical",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "valueSize": 16
+        },
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_RunStatus_envId{tgw_id=\"${tgw_id}\"}",
+          "format": "time_series",
+          "instant": true,
+          "legendFormat": "环境号",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "环境号",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "7-OvIHzGz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "未知",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 1
+              },
+              {
+                "color": "dark-orange",
+                "value": 10
+              },
+              {
+                "color": "dark-red",
+                "value": 20
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 6,
+        "y": 18
+      },
+      "id": 15,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "valueSize": 16
+        },
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_RunStatus_orderCount{tgw_id=\"${tgw_id}\"} - tgw_RunStatus_orderConfirmCount{tgw_id=\"${tgw_id}\"} - tgw_RunStatus_invalidOrderCount{tgw_id=\"${tgw_id}\"}",
+          "format": "time_series",
+          "instant": true,
+          "legendFormat": "委托确认差值",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "委托确认差值",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "7-OvIHzGz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "dark-green",
+                  "index": 0,
+                  "text": "生产模式"
+                },
+                "2": {
+                  "color": "dark-orange",
+                  "index": 1,
+                  "text": "测试模式"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "noValue": "未知",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 2,
+        "y": 19
+      },
+      "id": 13,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "vertical",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "valueSize": 16
+        },
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.1.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_RunStatus_testMode{tgw_id=\"${tgw_id}\"}",
+          "format": "time_series",
+          "instant": true,
+          "legendFormat": "模式",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "模式",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "7-OvIHzGz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "noValue": "未知",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 11,
+        "x": 0,
+        "y": 21
+      },
+      "id": 16,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.1.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_RunStatus_orderCount{tgw_id=\"${tgw_id}\"}",
+          "format": "time_series",
+          "instant": false,
+          "legendFormat": "已发委托数",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_RunStatus_orderConfirmCount{tgw_id=\"${tgw_id}\"}",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "收到委托确认数",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_RunStatus_reportCount{tgw_id=\"${tgw_id}\"}",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "收到成交回报数",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_RunStatus_invalidOrderCount{tgw_id=\"${tgw_id}\"}",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "非法委托数",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "7-OvIHzGz"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "tgw_RunStatus_businessRejectCount{tgw_id=\"${tgw_id}\"}",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "业务拒绝消息数",
+          "range": true,
+          "refId": "E"
+        }
+      ],
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": [
+            "F000402Y0146"
+          ],
+          "value": [
+            "F000402Y0146"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "7-OvIHzGz"
+        },
+        "definition": "label_values(tgw_up,tgw_id)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "tgw网关号",
+        "multi": true,
+        "name": "tgw_id",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(tgw_up,tgw_id)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 2,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "tgw_monitor_v0.1",
+  "uid": "eff221fexaxa8c",
+  "version": 81,
+  "weekStart": ""
+}

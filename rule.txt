@@ -1,0 +1,85 @@
+groups:
+  - name: tgw_gateway_alerts
+    rules:
+      # 网关未启动告警
+      - alert: TGWGatewayDown
+        expr: tgw_up != 1
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "网关 {{ $labels.tgw_id }} 未启动"
+          description: "网关 {{ $labels.tgw_id }} (host: {{ $labels.tgw_host }}:{{ $labels.tgw_monitor_port }}) 已停止运行超过1分钟，当前状态码: {{ $value }}"
+
+      # 通讯状态异常告警
+      - alert: TGWCommunicationStatusAbnormal
+        expr: tgw_RunStatus_commStatus == 0
+        for: 30s
+        labels:
+          severity: warning
+        annotations:
+          summary: "网关 {{ $labels.tgw_id }} 通讯状态异常"
+          description: "网关 {{ $labels.tgw_id }} (server: {{ $labels.serverAddress }}) 通讯中断"
+
+      # 平台状态未知告警
+      - alert: TGWPlatformStatusUnknown
+        expr: tgw_RunStatus_platformState == 99
+        for: 30s
+        labels:
+          severity: warning
+        annotations:
+          summary: "网关 {{ $labels.tgw_id }} 平台状态未知"
+          description: "网关 {{ $labels.tgw_id }} (platform_id: {{ $labels.platform_id }}) 平台状态未知"
+
+      # 会话通信异常告警
+      - alert: TGWSessionCommunicationError
+        expr: tgw_SessionStatus_sessionStatus == 2
+        for: 30s
+        labels:
+          severity: critical
+        annotations:
+          summary: "网关 {{ $labels.tgw_id }} 会话通信异常"
+          description: "网关 {{ $labels.tgw_id }} (platform_id: {{ $labels.platform_id }}) 会话通信异常"
+
+      # 会话未连接告警（需要监控 + 平台已配置 + 会话未连接）
+      - alert: TGWSessionNotConnected
+        expr: tgw_required == 1 and on(tgw_id, platform_id) tgw_RunStatus_platformState != -99 and on(tgw_id, platform_id) tgw_SessionStatus_sessionStatus == -99
+        for: 30s
+        labels:
+          severity: warning
+        annotations:
+          summary: "网关 {{ $labels.tgw_id }} 会话未连接"
+          description: "网关 {{ $labels.tgw_id }} (platform_id: {{ $labels.platform_id }}) 会话未连接"
+
+      # 会话状态变更告警（由正常变为异常）
+      - alert: TGWSessionStatusChanged
+        expr: changes(tgw_SessionStatus_sessionStatus[5m]) > 0 and tgw_SessionStatus_sessionStatus != 1
+        for: 30s
+        labels:
+          severity: warning
+        annotations:
+          summary: "网关 {{ $labels.tgw_id }} 会话状态变更"
+          description: "网关 {{ $labels.tgw_id }} (platform_id: {{ $labels.platform_id }}) 会话状态由正常变为异常，当前状态: {{ $value }}"
+
+      # 平台与会话状态不匹配告警
+      - alert: TGWPlatformSessionMismatch
+        expr: |
+          (
+            (
+              count(tgw_RunStatus_platformState != 99 and tgw_RunStatus_platformState != -99) by (tgw_id) 
+              == bool 
+              count(tgw_SessionStatus_sessionStatus == 1) by (tgw_id)
+            )
+            +
+            (
+              count(tgw_SessionStatus_sessionStatus == 1) by (tgw_id) 
+              == bool 
+              count(tgw_required_platforms  == 1) by (tgw_id)
+            )
+          ) == 0
+        for: 30s
+        labels:
+          severity: warning
+        annotations:
+          summary: "网关 {{ $labels.tgw_id }} 平台与会话状态不匹配"
+          description: "网关 {{ $labels.tgw_id }} 平台状态异常"
